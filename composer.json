@@ -1,29 +1,30 @@
 {
-  "name": "fncong/laravel-tool",
-  "description": "laravel开发工具",
-  "minimum-stability": "stable",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "fncong",
-      "email": "email@example.com"
+    "name": "fncong/laravel-tool",
+    "description": "laravel开发工具",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "fncong",
+            "email": "email@example.com"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^8.0",
+        "illuminate/console": "^8.0",
+        "illuminate/http": "^8.0",
+        "myclabs/php-enum": "^1.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tool\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tool\\ToolProvider"
+            ]
+        }
     }
-  ],
-  "require": {
-    "illuminate/support": "^8.0",
-    "illuminate/console": "^8.0",
-    "illuminate/http": "^8.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "Tool\\": "src/"
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Tool\\ToolProvider"
-      ]
-    }
-  }
 }

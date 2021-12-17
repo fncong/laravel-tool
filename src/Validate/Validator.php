@@ -1,13 +1,11 @@
 <?php
 
 
-namespace App\Http\Validators;
+namespace Tool\Validate;
 
-
-use App\Exceptions\ValidatorSceneNotFoundExException;
 use Illuminate\Support\Str;
 
-abstract class BaseValidator
+abstract class Validator
 {
     public array $scenes = [];
 
