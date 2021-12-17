@@ -21,6 +21,7 @@ class CreateConfigsTable extends Migration
             $table->text('value')->comment('配置值');
             $table->enum('type', ['string', 'json', 'integer', 'float', 'rich', 'text', 'image', 'images', 'file', 'files', 'boolean'])->comment('配置类型');
             $table->string('description')->comment('配置描述');
+            $table->boolean('is_show')->default(false)->comment('接口是否显示');
         });
     }
 
