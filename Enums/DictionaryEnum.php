@@ -2,15 +2,20 @@
 
 namespace App\Enums;
 
-use MyCLabs\Enum\Enum;
+use JetBrains\PhpStorm\ArrayShape;
+use Tool\Enum;
+
 
 final class DictionaryEnum extends Enum
 {
     public const GROUP_ADVERTISEMENT = 'advertisement';
 
-    public static array $attr = [
-        'group' => [
-            self::GROUP_ADVERTISEMENT => '广告',
-        ]
-    ];
+    #[ArrayShape(['group' => "string[]"])] public function labels(): array
+    {
+        return [
+            'group' => [
+                self::GROUP_ADVERTISEMENT => '广告',
+            ]
+        ];
+    }
 }

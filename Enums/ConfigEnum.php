@@ -2,15 +2,21 @@
 
 namespace App\Enums;
 
-use MyCLabs\Enum\Enum;
+
+use JetBrains\PhpStorm\ArrayShape;
+use Tool\Enum;
 
 final class ConfigEnum extends Enum
 {
     public const GROUP_BASIC = 'basic';
 
-    public static array $attr = [
-        'group' => [
-            self::GROUP_BASIC => '基础配置',
-        ]
-    ];
+
+    #[ArrayShape(['group' => "string[]"])] public function labels(): array
+    {
+        return [
+            'group' => [
+                self::GROUP_BASIC => '基础配置',
+            ]
+        ];
+    }
 }

@@ -2,16 +2,19 @@
 
 namespace Tool;
 
+use ReflectionClass;
+use ReflectionException;
+
 abstract class Enum
 {
-    protected static $cache = [];
+    protected static array $cache = [];
 
     public static function toArray()
     {
         $class = static::class;
 
         if (!isset(static::$cache[$class])) {
-            $reflection = new \ReflectionClass($class);
+            $reflection = new ReflectionClass($class);
             static::$cache[$class] = $reflection->getConstants();
         }
 
