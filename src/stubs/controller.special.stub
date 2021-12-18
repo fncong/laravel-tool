@@ -1,0 +1,51 @@
+<?php
+
+namespace {{ namespace }};
+
+use App\Http\Controllers\Controller;
+use App\Http\Services\{{ App }}\{{ service }};
+use App\Http\Validators\{{ validator }};
+use Illuminate\Http\Request;
+
+class {{ class }} extends Controller
+{
+    public function __construct(Request $request)
+    {
+        parent::__construct($request);
+    }
+
+    public function index({{ service }} $service)
+    {
+        $params = $this->request->only([]);
+        $this->validator({{ validator }}::class, $params, "{{ app }}-index");
+        return $this->success('ok', $service->index($params));
+    }
+
+
+    public function show({{ service }} $service, $id)
+    {
+        return $this->success('ok', $service->show($id));
+    }
+
+
+    public function store({{ service }} $service)
+    {
+        $params = $this->request->only([]);
+        $this->validator({{ validator }}::class, $params, '{{ app }}-store');
+        return $this->success('新增成功', $service->store($params));
+    }
+
+
+    public function update({{ service }} $service, $id)
+    {
+        $params = $this->request->only([]);
+        $this->validator({{ validator }}::class, $params, '{{ app }}-update');
+        return $this->success('修改成功', $service->update($id, $params));
+    }
+
+
+    public function destroy({{ service }} $service, $id)
+    {
+        return $this->success('删除成功', $service->destroy($id));
+    }
+}

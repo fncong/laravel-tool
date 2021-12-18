@@ -1,0 +1,36 @@
+<?php
+
+namespace App\Http\Services\{{ App }};
+
+use App\Http\Services\BaseService;
+use App\Models\{{ model }};
+
+class {{ model }}Service extends BaseService
+{
+    public function index(array $params)
+    {
+        return {{ model }}::query()
+            ->orderByDesc('id')->paginate();
+    }
+
+    public function show($id)
+    {
+        return {{ model }}::query()->findOrFail($id);
+    }
+
+    public function store($params)
+    {
+        return {{ model }}::query()->create($params);
+
+    }
+
+    public function update($id, array $params)
+    {
+        return {{ model }}::query()->where('id', $id)->update($params);
+    }
+
+    public function destroy($id)
+    {
+        return {{ model }}::query()->where('id', $id)->delete();
+    }
+}
