@@ -1,0 +1,14 @@
+<?php
+
+namespace App\Enums;
+
+use Tool\Enum;
+
+final class {{ class }} extends Enum
+{
+    public function labels(): array
+    {
+        return [
+        ];
+    }
+}
