@@ -21,15 +21,23 @@ abstract class Enum
         return static::$cache[$class];
     }
 
-    public function values(): array
+    public static function values(): array
     {
         return static::toArray();
     }
 
-    public function keys(): array
+    public static function keys(): array
     {
         return array_keys(static::toArray());
     }
 
-    abstract public function labels(): array;
+    public static function singleKey($key)
+    {
+        return array_keys(static::labels()[$key]);
+    }
+
+    public static function labels(): array
+    {
+        return [];
+    }
 }

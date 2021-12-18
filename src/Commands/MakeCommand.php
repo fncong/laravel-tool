@@ -51,6 +51,7 @@ class MakeCommand extends GeneratorCommand
             $this->input->setOption('service', true);
             $this->input->setOption('resource', true);
             $this->input->setOption('validator', true);
+            $this->input->setOption('enum', true);
         }
 
         if ($this->option('factory')) {
@@ -74,6 +75,9 @@ class MakeCommand extends GeneratorCommand
         }
         if ($this->option('validator')) {
             $this->createValidator();
+        }
+        if ($this->option('enum')) {
+            $this->createEnum();
         }
     }
 
@@ -186,6 +190,20 @@ class MakeCommand extends GeneratorCommand
     }
 
     /**
+     * Create a model factory for the model.
+     *
+     * @return void
+     */
+    protected function createEnum()
+    {
+        $validator = Str::studly($this->argument('name'));
+
+        $this->call('tool:enum', [
+            'name' => "{$validator}Enum"
+        ]);
+    }
+
+    /**
      * Get the stub file for the generator.
      *
      * @return string
@@ -233,6 +251,7 @@ class MakeCommand extends GeneratorCommand
             ['controller', 'c', InputOption::VALUE_NONE, 'Create a new controller for the model'],
             ['service', null, InputOption::VALUE_NONE, 'Create a new service for the model'],
             ['validator', null, InputOption::VALUE_NONE, 'Create a new validator for the model'],
+            ['enum', null, InputOption::VALUE_NONE, 'Create a new enum for the model'],
             ['factory', 'f', InputOption::VALUE_NONE, 'Create a new factory for the model'],
             ['force', null, InputOption::VALUE_NONE, 'Create the class even if the model already exists'],
             ['migration', 'm', InputOption::VALUE_NONE, 'Create a new migration file for the model'],
