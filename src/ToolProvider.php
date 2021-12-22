@@ -9,10 +9,9 @@ use Laravel\Sanctum\Sanctum;
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
 use Tool\Commands\ControllerCommand;
-use Tool\Commands\InitCommand;
+use Tool\Commands\EnumCommand;
 use Tool\Commands\MakeCommand;
 use Tool\Commands\ServiceCommand;
-use Tool\Commands\TestCommand;
 use Tool\Commands\ValidatorCommand;
 
 class ToolProvider extends ServiceProvider
@@ -56,6 +55,7 @@ class ToolProvider extends ServiceProvider
                 ControllerCommand::class,
                 ServiceCommand::class,
                 ValidatorCommand::class,
+                EnumCommand::class,
             ]);
         }
     }

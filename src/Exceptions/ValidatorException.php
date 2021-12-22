@@ -10,6 +10,6 @@ class ValidatorException extends \RuntimeException
 {
     public function render($request): JsonResponse
     {
-        return response()->json(['code' => 0, 'message' => $this->getMessage(), 'data' => []], 412);
+        return response()->json(['code' => 1, 'message' => $this->getMessage(), 'result' => []], 412);
     }
 }
