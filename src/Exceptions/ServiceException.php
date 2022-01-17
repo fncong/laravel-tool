@@ -11,7 +11,7 @@ class ServiceException extends \RuntimeException
 {
     private $data = [];
 
-    private $service_code = 0;
+    private $service_code = 1;
 
 
     public function render($request): JsonResponse
