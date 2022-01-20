@@ -44,7 +44,7 @@ abstract class Enum
 
     #[Pure] public static function getText($key, $value, $default = ''): string
     {
-        $data = self::labels();
+        $data = static::labels();
         if (!isset($data[$key]) || !isset($data[$key][$value])) {
             return $default;
         }
