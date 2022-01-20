@@ -4,6 +4,7 @@
 namespace Tool\Validate;
 
 use Illuminate\Support\Str;
+use Tool\Exceptions\ValidatorSceneNotFoundExException;
 
 abstract class Validator
 {

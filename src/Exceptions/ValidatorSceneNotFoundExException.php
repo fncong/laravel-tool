@@ -9,6 +9,6 @@ class ValidatorSceneNotFoundExException extends Exception
 {
     public function render($request): JsonResponse
     {
-//        return failure($this->getMessage())->setStatusCode(503);
+        return response()->json(['code' => 1, 'message' => $this->getMessage(), 'result' => []], 500);
     }
 }
