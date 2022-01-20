@@ -2,6 +2,7 @@
 
 namespace Tool;
 
+use JetBrains\PhpStorm\Pure;
 use ReflectionClass;
 use ReflectionException;
 
@@ -31,7 +32,7 @@ abstract class Enum
         return array_keys(static::toArray());
     }
 
-    public static function singleKey($key)
+    #[Pure] public static function singleKey($key): array
     {
         return array_keys(static::labels()[$key]);
     }
@@ -39,5 +40,14 @@ abstract class Enum
     public static function labels(): array
     {
         return [];
+    }
+
+    #[Pure] public static function getText($key, $value, $default = ''): string
+    {
+        $data = self::labels();
+        if (!isset($data[$key]) || !isset($data[$key][$value])) {
+            return $default;
+        }
+        return $data[$key][$value];
     }
 }
