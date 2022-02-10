@@ -12,7 +12,9 @@
     "require": {
         "illuminate/support": "^8.0",
         "illuminate/console": "^8.0",
-        "illuminate/http": "^8.0"
+        "illuminate/http": "^8.0",
+        "league/flysystem": "^2.0",
+        "laravel/sanctum": "^2.14"
     },
     "autoload": {
         "psr-4": {

@@ -6,7 +6,7 @@ use Illuminate\Routing\Console\ControllerMakeCommand;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Sanctum\Sanctum;
-use League\Flysystem\Adapter\Local;
+use League\Flysystem\Local\LocalFilesystemAdapter;
 use League\Flysystem\Filesystem;
 use Tool\Commands\ControllerCommand;
 use Tool\Commands\EnumCommand;
@@ -24,7 +24,7 @@ class ToolProvider extends ServiceProvider
     public function boot()
     {
         if ($this->app->runningInConsole()) {
-            $adapter = new Local(app_path());
+            $adapter = new LocalFilesystemAdapter(app_path());
             $file_system = new Filesystem($adapter);
             $file_system->createDir('Enums');
             $file_system->createDir('Http/Validators');
